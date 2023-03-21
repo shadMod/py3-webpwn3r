@@ -4,13 +4,13 @@
 # Author: Ebrahim Hegazy // ShadMod
 """
 
-from .costants import (
+from costants import (
     get_green,
     get_bold,
     get_red,
     get_end,
 )
-from .vulnz import (
+from vulnz import (
     rce_func,
     xss_func,
     error_based_sqli_func,

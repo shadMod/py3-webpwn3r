@@ -8,14 +8,14 @@ import re
 import time
 import urllib.request
 
-from .costants import (
+from costants import (
     get_green,
     get_blue,
     get_bold,
     get_red,
     get_end,
 )
-from .headers import (
+from headers import (
     useragent,
     headers_reader,
 )

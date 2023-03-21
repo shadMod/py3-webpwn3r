@@ -6,7 +6,7 @@
 
 from urllib.request import urlopen, FancyURLopener
 
-from .costants import (
+from costants import (
     HTTPHEADER_SERVER,
     get_green,
     get_bold,
