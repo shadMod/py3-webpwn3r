@@ -3,7 +3,7 @@ from distutils.core import setup
 setup(
     name="py3-webpwn3r",
     packages=["py3-webpwn3r"],
-    version="0.1",
+    version="0.4",
     license="Web Applications Security Scanner",
     description="Web Applications Security Scanner",
     author="ShadMod",
