@@ -9,7 +9,7 @@ setup(
     author="ShadMod",
     author_email="support@shadmod.it",
     url="https://github.com/shadMod/py3-webpwn3r",
-    download_url="https://github.com/shadMod/py3-webpwn3r/archive/refs/tags/0.0.3.tar.gz",
+    download_url="https://github.com/shadMod/py3-webpwn3r/archive/refs/tags/0.0.4.tar.gz",
     keywords=[
         "WebPwn3r",
     ],
