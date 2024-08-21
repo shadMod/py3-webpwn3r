@@ -1,8 +1,21 @@
 #!/usr/bin/env python3
-"""
-# WebPwn3r is a Web Applications Security Scanner
-# Author: Ebrahim Hegazy // ShadMod
-"""
+
+# Source code of Ebrahim Hegazy
+# Copyright (C) 2013 Ebrahim Hegazy
+# Copyright (C) 2023 shadmod <info@shadmod.it>
+
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as published
+# by the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from costants import (
     get_green,
@@ -26,7 +39,7 @@ copyr = """
 
 ################################################################
 #| "WebPwn3r" Web Applications Security Scanner               |#
-#|  By Ebrahim Hegazy - @Zigoo0 - ShadMod                     |#
+#|  By Ebrahim Hegazy - @Zigoo0                               |#
 #|  This Version Supports Remote Code/Command Execution, XSS  |#
 #|  And SQL Injection.                                        |#
 #|  Thanks @lnxg33k, @dia2diab @Aelhemily, @okamalo           |#
