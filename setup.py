@@ -1,28 +1,37 @@
-from distutils.core import setup
+import setuptools
 
-setup(
+__version__ = "0.0.5"
+
+with open("README.md", "r", encoding="utf-8") as fh:
+    long_description = fh.read()
+
+setuptools.setup(
     name="py3-webpwn3r",
-    packages=["py3-webpwn3r"],
-    version="0.4",
-    license="Web Applications Security Scanner",
-    description="Web Applications Security Scanner",
-    author="ShadMod",
+    version=__version__,
+    author="shadMod",
     author_email="support@shadmod.it",
-    url="https://github.com/shadMod/py3-webpwn3r",
-    download_url="https://github.com/shadMod/py3-webpwn3r/archive/refs/tags/0.0.4.tar.gz",
+    description="Web Applications Security Scanner",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
     keywords=[
         "WebPwn3r",
     ],
+    url="https://github.com/shadMod/py3-webpwn3r/",
+    download_url=f"https://github.com/shadMod/py3-webpwn3r/archive/refs/tags/{__version__}.tar.gz",
+    project_urls={
+        "GitHub": "https://github.com/shadMod/py3-webpwn3r/",
+        "Bug Tracker": "https://github.com/shadMod/py3-webpwn3r/issues/",
+    },
     classifiers=[
-        "Development Status :: 3 - Alpha",
+        "Development Status :: 4 - Beta",
         "Intended Audience :: Developers",
-        "Topic :: Software Development :: Build Tools",
-        "License :: OSI Approved :: MIT License",
+        "License :: OSI Approved :: GNU Affero General Public License v3",
+        "Operating System :: OS Independent",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.6",
-        "Programming Language :: Python :: 3.7",
-        "Programming Language :: Python :: 3.8",
-        "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
+        "Programming Language :: Python :: 3.12",
     ],
+    packages=["py3_webpwn3r", "py3_webpwn3r.core"],
+    python_requires=">=3.10",
 )
