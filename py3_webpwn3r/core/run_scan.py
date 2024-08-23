@@ -16,101 +16,29 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-from costants import (
-    get_green,
-    get_bold,
-    get_red,
-    get_end,
-)
-from vulnz import (
-    rce_func,
-    xss_func,
-    error_based_sqli_func,
-)
+from vulnz import Vulnz
 
-copyr = """
-     __          __  _     _____                 ____       
-     \ \        / / | |   |  __ \               |___ \      
-      \ \  /\  / /__| |__ | |__) |_      ___ __   __) |_ __ 
-       \ \/  \/ / _ \ '_ \|  ___/\ \ /\ / / '_ \ |__ <| '__|
-        \  /\  /  __/ |_) | |     \ V  V /| | | |___) | |   
-         \/  \/ \___|_.__/|_|      \_/\_/ |_| |_|____/|_|   
+from py3_webpwn3r.core.costants import ANSI_BOLD, ANSI_END, ANSI_GREEN
+from py3_webpwn3r.core.run_copyr import print_copyr
 
-################################################################
-#| "WebPwn3r" Web Applications Security Scanner               |#
-#|  By Ebrahim Hegazy - @Zigoo0                               |#
-#|  This Version Supports Remote Code/Command Execution, XSS  |#
-#|  And SQL Injection.                                        |#
-#|  Thanks @lnxg33k, @dia2diab @Aelhemily, @okamalo           |#
-################################################################
-"""
-
-print(get_green + copyr + get_end)
-
-
-def urls_or_list():
-    url_or_list = input(" [!] Scan URL or List of URLs? [1/2]: ")
+if __name__ == "__main__":
+    print_copyr()
+    url_or_list = input("[!] Scan URL or List of URLs? [1/2]: ")
     if url_or_list == "1":
-        url = input(" [!] Enter the URL: ")
-        # if not url.startswith("http://"):
-        # Thanks to Nu11 for the HTTP checker
-        # print get_red+'''\n Invalid URL, Please Make Sure That The URL Starts With \"http://\" \n'''+get_end
-        # exit()
-        if "?" in url:
-            rce_func(url)
-            xss_func(url)
-            error_based_sqli_func(url)
-        else:
-            print(
-                get_red
-                + "\n [Warning] "
-                + get_end
-                + get_bold
-                + "%s" % url
-                + get_end
-                + get_red
-                + " is not a valid URL"
-                + get_end
-            )
-            print(
-                get_red
-                + " [Warning] You should write a Full URL .e.g http://site.com/page.php?id=value \n"
-                + get_end
-            )
-            exit()
-    if url_or_list == "2":
-        urls_list = input(
-            get_green + " [!] Enter the list file name .e.g [list.txt]: " + get_end
+        url = input("[!] Enter the URL: ")
+        vulnz = Vulnz(url.strip())
+        vulnz.call_all_detection_payloads()
+    elif url_or_list == "2":
+        input_urls_list = input(
+            f"{ANSI_GREEN}[!] Enter the list file name .e.g [list.txt]: {ANSI_END}"
         )
-        open_list = open(urls_list).readlines()
-        for line in open_list:
-            if "?" in line:
-                links = line.strip()
-                url = links
-                print(get_green + " \n [!] Now Scanning %s" % url + get_end)
-                rce_func(url)
-                xss_func(url)
-                error_based_sqli_func(url)
-            else:
-                links = line.strip()
-                url = links
-                print(
-                    get_red
-                    + "\n [Warning] "
-                    + get_end
-                    + get_bold
-                    + "%s" % url
-                    + get_end
-                    + get_red
-                    + " is not a valid URL"
-                    + get_end
-                )
-                print(
-                    get_red
-                    + " [Warning] You should write a Full URL .e.g http://site.com/page.php?id=value \n"
-                    + get_end
-                )
-        exit()
-
-
-urls_or_list()
+        with open(input_urls_list) as open_urls_list:
+            urls_list = open_urls_list.readlines()
+        for line in urls_list:
+            url = line.strip()
+            print(f"\n{ANSI_GREEN}[!] Now Scanning {url}{ANSI_END}")
+            vulnz = Vulnz(url)
+            vulnz.call_all_detection_payloads()
+    else:
+        print(f"\n{ANSI_BOLD}[!] Set wrong input{ANSI_END}")
+    exit()
